@@ -1,0 +1,32 @@
+2018-07-15 02:46:20.719 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?,?,?,?, ?,?,?,?,?, ?,?, ?,?) 
+2018-07-15 02:46:20.755 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 1(Integer), 1(Long), 店铺测试1(String), test1(String), test1(String), test1(String), null, null, 2018-07-15 02:46:20.7(Timestamp), 2018-07-15 02:46:20.7(Timestamp), 0(Integer), 审核中(String)
+2018-07-15 02:46:20.759 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - <==    Updates: 1
+2018-07-15 02:46:20.772 [main] DEBUG com.zcb.o2o.util.ImageUtil - current relativeAddr is:upload/item/shop/13/7979320180715024620.jpeg
+2018-07-15 02:46:20.773 [main] DEBUG com.zcb.o2o.util.ImageUtil - current complete addr is:/Users/zcb/eclipse-workspace/o2o/image/upload/item/shop/13/7979320180715024620.jpeg
+2018-07-15 02:46:21.514 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? where shop_id=? 
+2018-07-15 02:46:21.515 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - ==> Parameters: 店铺测试1(String), test1(String), test1(String), test1(String), upload/item/shop/13/7979320180715024620.jpeg(String), 2018-07-15 02:46:20.7(Timestamp), 0(Integer), 审核中(String), 1(Integer), 1(Long), 13(Long)
+2018-07-15 02:46:21.517 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2018-07-15 02:47:23.227 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?,?,?,?, ?,?,?,?,?, ?,?, ?,?) 
+2018-07-15 02:47:23.272 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 1(Integer), 1(Long), 店铺测试1(String), test1(String), test1(String), test1(String), null, null, 2018-07-15 02:47:23.202(Timestamp), 2018-07-15 02:47:23.202(Timestamp), 0(Integer), 审核中(String)
+2018-07-15 02:47:23.275 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - <==    Updates: 1
+2018-07-15 02:47:23.285 [main] DEBUG com.zcb.o2o.util.ImageUtil - current relativeAddr is:upload/item/shop/14/7674220180715024723.jpeg
+2018-07-15 02:47:23.285 [main] DEBUG com.zcb.o2o.util.ImageUtil - current complete addr is:/Users/zcb/eclipse-workspace/o2o/image/upload/item/shop/14/7674220180715024723.jpeg
+2018-07-15 02:47:23.786 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? where shop_id=? 
+2018-07-15 02:47:23.787 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - ==> Parameters: 店铺测试1(String), test1(String), test1(String), test1(String), upload/item/shop/14/7674220180715024723.jpeg(String), 2018-07-15 02:47:23.202(Timestamp), 0(Integer), 审核中(String), 1(Integer), 1(Long), 14(Long)
+2018-07-15 02:47:23.789 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2018-07-15 16:08:07.351 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?,?,?,?, ?,?,?,?,?, ?,?, ?,?) 
+2018-07-15 16:08:07.394 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 1(Integer), 1(Long), 店铺测试3(String), test3(String), test3(String), test3(String), null, null, 2018-07-15 16:08:07.313(Timestamp), 2018-07-15 16:08:07.313(Timestamp), 0(Integer), 审核中(String)
+2018-07-15 16:08:07.400 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - <==    Updates: 1
+2018-07-15 16:08:07.426 [main] DEBUG com.zcb.o2o.util.ImageUtil - current relativeAddr is:upload/item/shop/15/3256220180715160807.jpeg
+2018-07-15 16:08:07.426 [main] DEBUG com.zcb.o2o.util.ImageUtil - current complete addr is:/Users/zcb/eclipse-workspace/o2o/image/upload/item/shop/15/3256220180715160807.jpeg
+2018-07-15 16:08:08.758 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? where shop_id=? 
+2018-07-15 16:08:08.760 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - ==> Parameters: 店铺测试3(String), test3(String), test3(String), test3(String), upload/item/shop/15/3256220180715160807.jpeg(String), 2018-07-15 16:08:07.313(Timestamp), 0(Integer), 审核中(String), 1(Integer), 1(Long), 15(Long)
+2018-07-15 16:08:08.764 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - <==    Updates: 1
+2018-07-15 16:12:19.281 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - ==>  Preparing: INSERT INTO tb_shop(owner_id, area_id, shop_category_id, shop_name, shop_desc, shop_addr, phone, shop_img, priority, create_time, last_edit_time, enable_status, advice) VALUES (?,?,?,?, ?,?,?,?,?, ?,?, ?,?) 
+2018-07-15 16:12:19.313 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - ==> Parameters: 1(Long), 1(Integer), 1(Long), 店铺测试3(String), test3(String), test3(String), test3(String), null, null, 2018-07-15 16:12:19.228(Timestamp), 2018-07-15 16:12:19.228(Timestamp), 0(Integer), 审核中(String)
+2018-07-15 16:12:19.319 [main] DEBUG com.zcb.o2o.dao.ShopDao.insertShop - <==    Updates: 1
+2018-07-15 16:12:19.330 [main] DEBUG com.zcb.o2o.util.ImageUtil - current relativeAddr is:upload/item/shop/16/2018071516121912156.jpeg
+2018-07-15 16:12:19.330 [main] DEBUG com.zcb.o2o.util.ImageUtil - current complete addr is:/Users/zcb/eclipse-workspace/o2o/image/upload/item/shop/16/2018071516121912156.jpeg
+2018-07-15 16:12:20.007 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - ==>  Preparing: update tb_shop SET shop_name=?, shop_desc=?, shop_addr=?, phone=?, shop_img=?, last_edit_time=?, enable_status=?, advice=?, area_id=?, shop_category_id=? where shop_id=? 
+2018-07-15 16:12:20.010 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - ==> Parameters: 店铺测试3(String), test3(String), test3(String), test3(String), upload/item/shop/16/2018071516121912156.jpeg(String), 2018-07-15 16:12:19.228(Timestamp), 0(Integer), 审核中(String), 1(Integer), 1(Long), 16(Long)
+2018-07-15 16:12:20.014 [main] DEBUG com.zcb.o2o.dao.ShopDao.updateShop - <==    Updates: 1
