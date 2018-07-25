@@ -18,6 +18,14 @@ public class ShopDaoTest extends BaseTest {
 
 	@Autowired
 	private ShopDao shopDao;
+	
+	@Test
+	public void testQueryShopById() {
+		long shopId = 1;
+		Shop shop = shopDao.queryByShopId(shopId);
+		System.out.println(shop.toString());
+	}
+	
 	@Test
 	@Ignore
 	public void testInsertShop() {
@@ -43,6 +51,7 @@ public class ShopDaoTest extends BaseTest {
 		assertEquals(1, effectedNum);
 	}
 	@Test
+	@Ignore
 	public void testUpdateShop() {
 		Shop shop = new Shop();
 		shop.setShopId(1L);

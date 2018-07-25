@@ -28,6 +28,7 @@ import com.zcb.o2o.exceptions.ShopOperationException;
 import com.zcb.o2o.service.AreaService;
 import com.zcb.o2o.service.ShopCategoryService;
 import com.zcb.o2o.service.ShopService;
+import com.zcb.o2o.util.CodeUtil;
 import com.zcb.o2o.util.HttpServletRequestUtil;
 
 @Controller
@@ -63,6 +64,11 @@ public class ShopManagementController {
 	@ResponseBody
 	private Map<String, Object> registerShop(HttpServletRequest request) {
 		Map<String, Object> modelMap = new HashMap<>();
+		if (!CodeUtil.checkVerifyCode(request)) {
+			modelMap.put("success", false);
+			modelMap.put("errMsg", "验证码错误！");
+			return modelMap;
+		}
 		// 1. 接收并转化参数，包括店铺信息及图片信息
 		String shopStr = HttpServletRequestUtil.getString(request, "shopStr");
 		ObjectMapper mapper = new ObjectMapper();

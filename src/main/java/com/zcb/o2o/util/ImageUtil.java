@@ -100,6 +100,23 @@ public class ImageUtil {
 		String nowTimeStr = sDateFormat.format(new Date());
 		return nowTimeStr + rannum;
 	}
+	/**
+	 * storePath是文件的路径还是目录路径
+	 * 如果是文件路径则删除文件
+	 * 如果是目录路径则删除该目录下的所有文件
+	 */
+	public static void deleteFileOfPath(String storePath) {
+		File fileOrPath = new File(PathUtil.getImgBasePath() + storePath);
+		if(fileOrPath.exists()) {
+			if(fileOrPath.isDirectory()) {
+				File[] files = fileOrPath.listFiles();
+				for (File file : files) {
+					file.delete();
+				}
+			}
+			fileOrPath.delete();
+		}
+	}
 
 	public static void main(String[] args) throws IOException {
 		Thumbnails.of(new File("/Users/zcb/Desktop/xiaohuangren.jpeg")).size(200, 200)

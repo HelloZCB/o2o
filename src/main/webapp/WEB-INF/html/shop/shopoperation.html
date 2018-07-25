@@ -120,10 +120,10 @@
 							<div class="item-content">
 								<div class="item-inner">
 									<div class="item-title label">验证码</div>
-									<input type="text" id="j_captcha" placeholder="验证码">
+									<input type="text" id="j_captcha" placeholder="验证码(不区分大小写)">
 									<div class="item-input">
 										<img id="captcha_img" alt="点击更换" title="点击更换"
-											onclick="changeVerifyCode(this)" src="../Kaptcha" />
+											onclick="changeVerifyCode(this)" src="../Kaptcha" /><!-- web.xml中配置的servlet名字叫Kaptcha -->
 									</div>
 								</div>
 							</div>

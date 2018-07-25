@@ -131,4 +131,31 @@ public class Shop {
 	public void setShopCategory(ShopCategory shopCategory) {
 		this.shopCategory = shopCategory;
 	}
+
+	@Override
+	public String toString() {
+		return String.format(
+				"{shopId:%s, shopName:%s, shopDesc:%s, shopAddr:%s, phone:%s, shopImg:%s, priority:%s, createTime:%s, lastEditTime:%s, enableStatus:%s, advice:%s, area:%s}",
+				this.shopId,
+				this.shopName,
+				this.shopDesc,
+				this.shopAddr,
+				this.phone,
+				this.shopImg,
+				this.priority,
+				this.createTime,
+				this.lastEditTime,
+				this.enableStatus,
+				this.advice,
+				this.area != null ? this.area.toString() : null);
+	}
+	/*
+	public static void main(String[] args) {
+		Shop shop = new Shop();
+		shop.setShopId(1L);
+		Area area = new Area();
+		area.setAreaId(1);
+		shop.setArea(area);
+		System.out.println(shop.toString());
+	}*/
 }

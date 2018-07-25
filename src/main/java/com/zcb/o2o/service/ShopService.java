@@ -7,5 +7,7 @@ import com.zcb.o2o.entity.Shop;
 import com.zcb.o2o.exceptions.ShopOperationException;
 
 public interface ShopService {
+	Shop getShopById(long shopId);
+	ShopExecution modifyShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
 	ShopExecution addShop(Shop shop, InputStream shopImgInputStream, String fileName) throws ShopOperationException;
 }

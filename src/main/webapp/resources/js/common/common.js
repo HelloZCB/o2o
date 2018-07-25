@@ -19,7 +19,7 @@ Date.prototype.Format = function(fmt) {
 	return fmt;
 }
 /**
- * 
+ * 添加随机数是为了防止浏览器缓存，请求不到新的图片
  */
 function changeVerifyCode(img) {
 	img.src = "../Kaptcha?" + Math.floor(Math.random() * 100);
