@@ -1,3 +1,6 @@
-target/*
-*.gz
+target/
+*log.gz
 image/upload/
+**/debug.log
+.idea/
+.settings/
