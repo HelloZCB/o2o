@@ -1,6 +1,5 @@
 target/
-*log.gz
 image/upload/
-**/debug.log
 .idea/
 .settings/
+catalina.base_IS_UNDEFINED/*
