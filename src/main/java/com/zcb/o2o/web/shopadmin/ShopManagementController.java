@@ -39,6 +39,44 @@ public class ShopManagementController {
     @Autowired
     private AreaService areaService;
 
+    @RequestMapping(value = "getshopmanagementinfo", method = RequestMethod.GET)
+    @ResponseBody
+    private Map<String, Object> getShopManagementInfo(HttpServletRequest request) {
+        Map<String, Object> modelMap = new HashMap<>();
+        long shopId = HttpServletRequestUtil.getLong(request, "shopId");
+        if (shopId <= 0) {
+            Object currentShopObj = request.getSession().getAttribute("currentShop");
+            if (currentShopObj != null) {
+                modelMap.put("redirect", true);
+                modelMap.put("url", "/o2o/shop/")
+            }
+        }
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/getshoplist", method = RequestMethod.GET)
+    @ResponseBody
+    private Map<String, Object> getShopList(HttpServletRequest request) {
+        Map<String, Object> modelMap = new HashMap<>();
+        PersonInfo user = new PersonInfo();
+        user.setUserId(1L);
+        request.getSession().setAttribute("user", user);
+        user = (PersonInfo) request.getSession().getAttribute("user");
+        try {
+            Shop shopCondition = new Shop();
+            shopCondition.setOwner(user);
+            ShopExecution shopExecution = shopService.getShopList(shopCondition, 0, 100);
+            modelMap.put("shopList", shopExecution.getShopList());
+            modelMap.put("user", user);
+            modelMap.put("success", true);
+
+        } catch (Exception e) {
+            modelMap.put("success", true);
+            modelMap.put("errMsg", e.getMessage());
+        }
+        return modelMap;
+    }
+
     @RequestMapping(value = "/getshopbyid", method = RequestMethod.GET)
     @ResponseBody
     private Map<String, Object> getShopById(HttpServletRequest request) {
