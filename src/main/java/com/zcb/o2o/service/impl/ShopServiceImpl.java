@@ -2,7 +2,9 @@ package com.zcb.o2o.service.impl;
 
 import java.io.InputStream;
 import java.util.Date;
+import java.util.List;
 
+import com.zcb.o2o.util.PageCalculator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -69,6 +71,25 @@ public class ShopServiceImpl implements ShopService {
 		String dest = PathUtil.getShopImagePath(shop.getShopId());
 		String shopImgAddr = ImageUtil.generateThumbnail(shopImgInputStream, fileName, dest);
 		shop.setShopImg(shopImgAddr);
+	}
+
+	@Override
+	public ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize) {
+		int rowIndex = PageCalculator.calculateRowIndex(pageIndex, pageSize);
+		ShopExecution se = new ShopExecution();
+		if (shopCondition == null) {
+			se.setState(ShopStateEnum.NULL_SHOP.getState());
+		}else {
+			List<Shop> shopList = shopDao.queryShopList(shopCondition, rowIndex, pageSize);
+			int count = shopDao.queryShopCount(shopCondition);
+			if (shopList != null) {
+				se.setShopList(shopList);
+				se.setCount(count);
+			} else {
+				se.setState(ShopStateEnum.INNER_ERROR.getState());
+			}
+		}
+		return se;
 	}
 
 	@Override

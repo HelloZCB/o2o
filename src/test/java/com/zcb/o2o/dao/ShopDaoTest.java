@@ -3,6 +3,7 @@ package com.zcb.o2o.dao;
 import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
@@ -20,6 +21,7 @@ public class ShopDaoTest extends BaseTest {
 	private ShopDao shopDao;
 	
 	@Test
+	@Ignore
 	public void testQueryShopById() {
 		long shopId = 1;
 		Shop shop = shopDao.queryByShopId(shopId);
@@ -60,5 +62,17 @@ public class ShopDaoTest extends BaseTest {
 		shop.setLastEditTime(new Date());
 		int effectedNum = shopDao.updateShop(shop);
 		assertEquals(1, effectedNum);
+	}
+
+	@Test
+	public void testQueryShopListAndCount(){
+		Shop shopCondition = new Shop();
+		PersonInfo owner = new PersonInfo();
+		owner.setUserId(1L);
+		shopCondition.setOwner(owner);
+		List<Shop> shopList = shopDao.queryShopList(shopCondition, 0, 5);
+		assertEquals(5, shopList.size());
+		int count = shopDao.queryShopCount(shopCondition);
+		assertEquals(9, count);
 	}
 }

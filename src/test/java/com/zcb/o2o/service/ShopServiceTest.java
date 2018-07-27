@@ -22,7 +22,7 @@ import com.zcb.o2o.enums.ShopStateEnum;
 public class ShopServiceTest extends BaseTest{
 	@Autowired
 	private ShopService shopService;
-	
+
 	@Test
 	public void testAddShop() throws FileNotFoundException {
 		Shop shop = new Shop();
@@ -56,5 +56,16 @@ public class ShopServiceTest extends BaseTest{
 		InputStream inputStream = new FileInputStream(img);
 		ShopExecution shopExecution = shopService.modifyShop(shop, inputStream, img.getName());
 		System.out.println("新图片的地址为" + shopExecution.getShop().getShopImg());
+	}
+
+	@Test
+	public void testGetShopList(){
+		Shop shopCondition = new Shop();
+		ShopCategory sc = new ShopCategory();
+		sc.setShopCategoryId(1L);
+		shopCondition.setShopCategory(sc);
+		ShopExecution shopExecution = shopService.getShopList(shopCondition, 2, 4);
+		System.out.println(shopExecution.getShopList().size());
+		System.out.println(shopExecution.getCount());
 	}
 }
