@@ -46,10 +46,19 @@ public class ShopManagementController {
         long shopId = HttpServletRequestUtil.getLong(request, "shopId");
         if (shopId <= 0) {
             Object currentShopObj = request.getSession().getAttribute("currentShop");
-            if (currentShopObj != null) {
+            if (currentShopObj == null) {
                 modelMap.put("redirect", true);
-                modelMap.put("url", "/o2o/shop/")
+                modelMap.put("url", "/o2o/shopadmin/shoplist");
+            } else {
+                Shop currentShop = (Shop) currentShopObj;
+                modelMap.put("redirect", false);
+                modelMap.put("shopId", currentShop.getShopId());
             }
+        } else {
+            Shop currentShop = new Shop();
+            currentShop.setShopId(shopId);
+            request.getSession().setAttribute("currentShop", currentShop);
+            modelMap.put("redirect", false);
         }
         return modelMap;
     }
@@ -60,6 +69,7 @@ public class ShopManagementController {
         Map<String, Object> modelMap = new HashMap<>();
         PersonInfo user = new PersonInfo();
         user.setUserId(1L);
+        user.setName("钟春彬");
         request.getSession().setAttribute("user", user);
         user = (PersonInfo) request.getSession().getAttribute("user");
         try {
@@ -71,7 +81,7 @@ public class ShopManagementController {
             modelMap.put("success", true);
 
         } catch (Exception e) {
-            modelMap.put("success", true);
+            modelMap.put("success", false);
             modelMap.put("errMsg", e.getMessage());
         }
         return modelMap;
