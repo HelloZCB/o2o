@@ -1,6 +1,6 @@
 $(function () {
     var listUrl = '/o2o/shopadmin/getproductcategorylist';
-    var addUrl = '/o2o/shopadmin/addproductcategorys';
+    var addUrl = '/o2o/shopadmin/addproductcategorylist';
     var deleteUrl = '/o2o/shopadmin/removeproductcategory';
     getList();
 
@@ -59,7 +59,7 @@ $(function () {
                     $.toast('提交成功！');
                     getList();
                 } else {
-                    $.toast('提交失败！');
+                    $.toast('提交失败！' + data.errMsg);
                 }
             }
         });
@@ -74,7 +74,7 @@ $(function () {
     $('.category-wrap').on('click', '.row-product-category.now .delete',
         function (e) {
             var target = e.currentTarget;
-            $.confirm('确定么?', function () {
+            $.confirm('确定?', function () {
                 $.ajax({
                     url: deleteUrl,
                     type: 'POST',
