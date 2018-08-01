@@ -22,4 +22,6 @@ public interface ProductCategoryService {
      * @throws ProductCategoryOperationException
      */
     ProductCategoryExecution batchAddProductCategory(List<ProductCategory> productCategoryList) throws ProductCategoryOperationException;
+
+    ProductCategoryExecution deleteProductCategory(long productCategoryId, long shopId) throws ProductCategoryOperationException;
 }

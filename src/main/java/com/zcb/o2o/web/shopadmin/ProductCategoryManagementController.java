@@ -1,6 +1,7 @@
 package com.zcb.o2o.web.shopadmin;
 
 import com.zcb.o2o.dto.ProductCategoryExecution;
+import com.zcb.o2o.dto.Result;
 import com.zcb.o2o.entity.ProductCategory;
 import com.zcb.o2o.entity.Shop;
 import com.zcb.o2o.enums.ProductCategoryStateEnum;
@@ -17,8 +18,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import com.zcb.o2o.dto.Result;
 
 @Controller
 @RequestMapping("/shopadmin")
@@ -69,6 +68,32 @@ public class ProductCategoryManagementController {
         } else {
             modelMap.put("success", false);
             modelMap.put("errMsg", "请至少输入一个商品类别");
+        }
+        return modelMap;
+    }
+
+    @RequestMapping(value = "/removeproductcategory", method = RequestMethod.POST)
+    @ResponseBody
+    private Map<String, Object> removeProductCategory(@RequestBody Long productCategoryId, HttpServletRequest request) {
+        Map<String, Object> modelMap = new HashMap<>();
+        if (productCategoryId != null && productCategoryId > 0) {
+            try {
+                Shop currentShop = (Shop) request.getSession().getAttribute("currentShop");
+                ProductCategoryExecution productCategoryExecution = productCategoryService.deleteProductCategory(productCategoryId, currentShop.getShopId());
+                if (productCategoryExecution.getState() == ProductCategoryStateEnum.SUCCESS.getState()) {
+                    modelMap.put("success", true);
+                } else {
+                    modelMap.put("success", false);
+                    modelMap.put("errMsg", productCategoryExecution.getStateInfo());
+                }
+            } catch (Exception e) {
+                modelMap.put("success", false);
+                modelMap.put("errMsg", e.getMessage());
+                return modelMap;
+            }
+        } else {
+            modelMap.put("success", false);
+            modelMap.put("errMsg", "请至少选择一个商品类别");
         }
         return modelMap;
     }
