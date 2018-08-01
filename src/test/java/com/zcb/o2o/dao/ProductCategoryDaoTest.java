@@ -51,8 +51,8 @@ public class ProductCategoryDaoTest extends BaseTest {
         List<ProductCategory> productCategoryList = productCategoryDao.queryProductCategoryList(shopId);
         for (ProductCategory pc :
                 productCategoryList) {
-            if (pc.getProductCategoryName().equals("类型1")){
-                int effectedNum = productCategoryDao.deleteProductCategory(3, 1);
+            if (pc.getProductCategoryName().equals("类型1") || pc.getProductCategoryName().equals("服饰")){
+                int effectedNum = productCategoryDao.deleteProductCategory(pc.getProductCategoryId(), shopId);
                 System.out.println(effectedNum);
                 assertEquals(1, effectedNum);
             }
