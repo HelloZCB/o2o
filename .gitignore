@@ -1,5 +1,5 @@
 target/
 image/upload/
 .idea/
-.settings/
 catalina.base_IS_UNDEFINED/*
+/.settings/

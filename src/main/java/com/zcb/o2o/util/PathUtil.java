@@ -9,7 +9,7 @@ public class PathUtil {
 		if (os.toLowerCase().startsWith("win")) {
 			basePath = "D:/projectdev/image/";
 		} else {
-			basePath = "/Users/zcb/eclipse-workspace/o2o/image/";
+			basePath = "/Users/zcb/workspace/workspace-java/o2o/image/";
 		}
 		basePath = basePath.replace("/", separator);
 		return basePath;
