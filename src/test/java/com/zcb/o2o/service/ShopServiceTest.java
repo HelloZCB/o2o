@@ -8,6 +8,7 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Date;
 
+import com.zcb.o2o.dto.ImageHolder;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -44,7 +45,8 @@ public class ShopServiceTest extends BaseTest{
 		shop.setAdvice("审核中");
 		File shopImg = new File("/Users/zcb/Desktop/xiaohuangren.jpeg");
 		InputStream inputStream = new FileInputStream(shopImg);
-		ShopExecution shopExecution = shopService.addShop(shop, inputStream, shopImg.getName());
+		ImageHolder imageHolder = new ImageHolder(shopImg.getName(), inputStream);
+		ShopExecution shopExecution = shopService.addShop(shop, imageHolder);
 		assertEquals(ShopStateEnum.CHECK.getState(), shopExecution.getState());
 	}
 	@Test
@@ -54,7 +56,8 @@ public class ShopServiceTest extends BaseTest{
 		shop.setShopName("修改后的店铺名称");
 		File img = new File("/Users/zcb/Desktop/dabai.jpeg");
 		InputStream inputStream = new FileInputStream(img);
-		ShopExecution shopExecution = shopService.modifyShop(shop, inputStream, img.getName());
+		ImageHolder imageHolder = new ImageHolder(img.getName(), inputStream);
+		ShopExecution shopExecution = shopService.modifyShop(shop, imageHolder);
 		System.out.println("新图片的地址为" + shopExecution.getShop().getShopImg());
 	}
 

@@ -32,7 +32,7 @@ public class ProductImgDaoTest extends BaseTest {
         productImg2.setPriority(1);
         productImg2.setCreateTime(new Date());
         productImg2.setProductId(1L);
-        List<ProductImg> productImgList = new ArrayList<ProductImg>();
+        List<ProductImg> productImgList = new ArrayList<>();
         productImgList.add(productImg1);
         productImgList.add(productImg2);
         int effectedNum = productImgDao.batchInsertProductImg(productImgList);

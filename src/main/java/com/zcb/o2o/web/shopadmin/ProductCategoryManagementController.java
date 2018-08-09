@@ -37,10 +37,10 @@ public class ProductCategoryManagementController {
         List<ProductCategory> list;
         if (currentShop != null && currentShop.getShopId() > 0) {
             list = productCategoryService.getProductCategoryList(currentShop.getShopId());
-            return new Result<List<ProductCategory>>(true, list);
+            return new Result<>(true, list);
         } else {
             ProductCategoryStateEnum ps = ProductCategoryStateEnum.INNER_ERROR;
-            return new Result<List<ProductCategory>>(false, ps.getState(), ps.getStateInfo());
+            return new Result<>(false, ps.getState(), ps.getStateInfo());
         }
     }
 
