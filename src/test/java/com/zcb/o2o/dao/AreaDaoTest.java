@@ -11,12 +11,12 @@ import com.zcb.o2o.BaseTest;
 import com.zcb.o2o.entity.Area;
 
 public class AreaDaoTest extends BaseTest {
-	@Autowired
-	private AreaDao areaDao;
+    @Autowired
+    private AreaDao areaDao;
 
-	@Test
-	public void testQueryArea() {
-		List<Area> areaList = areaDao.queryArea();
-		assertEquals(2, areaList.size());
-	}
+    @Test
+    public void testQueryArea() {
+        List<Area> areaList = areaDao.queryArea();
+        assertEquals(2, areaList.size());
+    }
 }

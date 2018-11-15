@@ -27,7 +27,7 @@ public class ProductCategoryDaoTest extends BaseTest {
     }
 
     @Test
-    public void testABatchInsert(){
+    public void testABatchInsert() {
         List<ProductCategory> productCategoryList = new ArrayList<>();
         ProductCategory temp1 = new ProductCategory();
         temp1.setShopId(1L);
@@ -46,12 +46,12 @@ public class ProductCategoryDaoTest extends BaseTest {
     }
 
     @Test
-    public void testCDeleteProductCategory(){
+    public void testCDeleteProductCategory() {
         long shopId = 1;
         List<ProductCategory> productCategoryList = productCategoryDao.queryProductCategoryList(shopId);
         for (ProductCategory pc :
                 productCategoryList) {
-            if (pc.getProductCategoryName().equals("类型1") || pc.getProductCategoryName().equals("服饰")){
+            if (pc.getProductCategoryName().equals("类型1") || pc.getProductCategoryName().equals("服饰")) {
                 int effectedNum = productCategoryDao.deleteProductCategory(pc.getProductCategoryId(), shopId);
                 System.out.println(effectedNum);
                 assertEquals(1, effectedNum);

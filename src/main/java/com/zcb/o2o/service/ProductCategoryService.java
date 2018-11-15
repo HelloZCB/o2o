@@ -16,7 +16,6 @@ public interface ProductCategoryService {
     List<ProductCategory> getProductCategoryList(long shopId);
 
     /**
-     *
      * @param productCategoryList
      * @return
      * @throws ProductCategoryOperationException

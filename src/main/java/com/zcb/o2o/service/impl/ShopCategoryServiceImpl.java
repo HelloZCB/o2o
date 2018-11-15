@@ -10,13 +10,14 @@ import com.zcb.o2o.entity.ShopCategory;
 import com.zcb.o2o.service.ShopCategoryService;
 
 @Service
-public class ShopCategoryServiceImpl implements ShopCategoryService{
+public class ShopCategoryServiceImpl implements ShopCategoryService {
 
-	@Autowired
-	private ShopCategoryDao shopCategoryDao;
-	@Override
-	public List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition) {
-		return shopCategoryDao.queryShopCategory(shopCategoryCondition);
-	}
-	
+    @Autowired
+    private ShopCategoryDao shopCategoryDao;
+
+    @Override
+    public List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition) {
+        return shopCategoryDao.queryShopCategory(shopCategoryCondition);
+    }
+
 }

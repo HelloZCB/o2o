@@ -66,6 +66,7 @@ public class ProductServiceImpl implements ProductService {
 
     /**
      * 批量添加商品图片
+     *
      * @param product
      * @param productImgHolderList
      */
@@ -95,6 +96,7 @@ public class ProductServiceImpl implements ProductService {
 
     /**
      * 保存商品缩略图
+     *
      * @param product
      * @param thumbnail
      */

@@ -27,6 +27,8 @@ public class ProductManagementController {
     @ResponseBody
     private Map<String, Object> addProduct(HttpServletRequest request) {
         Map<String, Object> modleMap = new HashMap<>();
+        // 验证码校验
+
         return modleMap;
     }
 }

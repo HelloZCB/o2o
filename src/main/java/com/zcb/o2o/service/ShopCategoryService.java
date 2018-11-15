@@ -5,5 +5,5 @@ import java.util.List;
 import com.zcb.o2o.entity.ShopCategory;
 
 public interface ShopCategoryService {
-	List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition);
+    List<ShopCategory> getShopCategoryList(ShopCategory shopCategoryCondition);
 }

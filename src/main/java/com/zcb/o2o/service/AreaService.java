@@ -5,5 +5,5 @@ import java.util.List;
 import com.zcb.o2o.entity.Area;
 
 public interface AreaService {
-	List<Area> getAreaList();
+    List<Area> getAreaList();
 }

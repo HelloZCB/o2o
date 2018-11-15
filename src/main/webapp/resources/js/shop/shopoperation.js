@@ -1,39 +1,40 @@
 /**
- * 
+ *
  */
-$(function(){
+$(function () {
     var shopId = getQueryString("shopId");
-    var isEdit = shopId?true:false;
-	var initUrl = '/o2o/shopadmin/getshopinitinfo';
-	var registerShopUrl = '/o2o/shopadmin/registershop';
-	var shopInfoUrl = '/o2o/shopadmin/getshopbyid?shopId=' + shopId
-	var editShopUrl = '/o2o/shopadmin/modifyshop'
-	if(!isEdit){
-	    getShopInitInfo()
-	}else{
+    var isEdit = shopId ? true : false;
+    var initUrl = '/o2o/shopadmin/getshopinitinfo';
+    var registerShopUrl = '/o2o/shopadmin/registershop';
+    var shopInfoUrl = '/o2o/shopadmin/getshopbyid?shopId=' + shopId
+    var editShopUrl = '/o2o/shopadmin/modifyshop'
+    if (!isEdit) {
+        getShopInitInfo()
+    } else {
         getShopInfo()
-	}
+    }
 
-	function getShopInitInfo(){
-		$.getJSON(initUrl, function(data){
-			if(data.success){
-				var tempHtml = '';
-				var tempAreaHtml = '';
-				data.shopCategoryList.map(function(item, index){
-					tempHtml += '<option data-id="' + item.shopCategoryId + '">' + item.shopCategoryName 
-					+ '</option>';
-				})
-				data.areaList.map(function(item, index){
-					tempAreaHtml += '<option data-id="' + item.areaId + '">' + item.areaName + '</option>';
-				})
-				$('#shop-category').html(tempHtml);
-				$('#area').html(tempAreaHtml);
-			}
-		})
-	}
-	function getShopInfo(shopId){
-        $.getJSON(shopInfoUrl, function(data){
-            if(data.success){
+    function getShopInitInfo() {
+        $.getJSON(initUrl, function (data) {
+            if (data.success) {
+                var tempHtml = '';
+                var tempAreaHtml = '';
+                data.shopCategoryList.map(function (item, index) {
+                    tempHtml += '<option data-id="' + item.shopCategoryId + '">' + item.shopCategoryName
+                        + '</option>';
+                })
+                data.areaList.map(function (item, index) {
+                    tempAreaHtml += '<option data-id="' + item.areaId + '">' + item.areaName + '</option>';
+                })
+                $('#shop-category').html(tempHtml);
+                $('#area').html(tempAreaHtml);
+            }
+        })
+    }
+
+    function getShopInfo(shopId) {
+        $.getJSON(shopInfoUrl, function (data) {
+            if (data.success) {
                 var shop = data.shop;
                 $('#shop-name').val(shop.shopName);
                 $('#shop-addr').val(shop.shopAddr);
@@ -41,13 +42,13 @@ $(function(){
                 $('#shop-desc').val(shop.shopDesc);
                 // 给店铺类别选定原先的店铺类别值
                 var shopCategory = '<option data-id="'
-                        + shop.shopCategory.shopCategoryId + '" selected>'
-                        + shop.shopCategory.shopCategoryName + '</option>';
+                    + shop.shopCategory.shopCategoryId + '" selected>'
+                    + shop.shopCategory.shopCategoryName + '</option>';
                 var tempAreaHtml = '';
                 // 初始化区域列表
-                data.areaList.map(function(item, index) {
+                data.areaList.map(function (item, index) {
                     tempAreaHtml += '<option data-id="' + item.areaId + '">'
-                            + item.areaName + '</option>';
+                        + item.areaName + '</option>';
                 });
                 $('#shop-category').html(shopCategory);
                 // 不允许选择店铺类别
@@ -55,13 +56,14 @@ $(function(){
                 $('#area').html(tempAreaHtml);
                 // 给店铺选定原先的所属的区域
                 $("#area option[data-id='" + shop.area.areaId + "']").attr(
-                        "selected", "selected");
+                    "selected", "selected");
             }
         })
     }
-    $('#submit').click(function(){
+
+    $('#submit').click(function () {
         var shop = {}
-        if(isEdit){
+        if (isEdit) {
             shop.shopId = shopId
         }
         shop.shopName = $('#shop-name').val();
@@ -69,36 +71,36 @@ $(function(){
         shop.phone = $('#shop-phone').val();
         shop.shopDesc = $('#shop-desc').val();
         shop.shopCategory = {
-                shopCategoryId : $('#shop-category').find('option').not(function(){
-                    return !this.selected
-                }).data('id')
+            shopCategoryId: $('#shop-category').find('option').not(function () {
+                return !this.selected
+            }).data('id')
         }
-        shop.area= {
-                areaId : $('#area').find('option').not(function(){
-                    return !this.selected
-                }).data('id')
+        shop.area = {
+            areaId: $('#area').find('option').not(function () {
+                return !this.selected
+            }).data('id')
         }
         var shopImg = $('#shop-img')[0].files[0]
         var formData = new FormData()
         formData.append('shopImg', shopImg)
         formData.append('shopStr', JSON.stringify(shop))
-        var verifyCodeActual=$('#j_captcha').val()
-        if(!verifyCodeActual){
+        var verifyCodeActual = $('#j_captcha').val()
+        if (!verifyCodeActual) {
             $.toast('请输入验证码！')
             return
         }
         formData.append('verifyCodeActual', verifyCodeActual)
         $.ajax({
-            url:(isEdit?editShopUrl:registerShopUrl),
-            type:'POST',
-            data:formData,
-            contentType:false,
-            processData:false,
-            cache:false,
-            success:function(data){
-                if(data.success){
+            url: (isEdit ? editShopUrl : registerShopUrl),
+            type: 'POST',
+            data: formData,
+            contentType: false,
+            processData: false,
+            cache: false,
+            success: function (data) {
+                if (data.success) {
                     $.toast('提交成功')
-                }else{
+                } else {
                     $.toast('提交失败：' + data.errMsg)
                 }
                 $('#captcha_img').click()

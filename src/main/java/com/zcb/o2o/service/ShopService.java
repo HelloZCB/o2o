@@ -6,8 +6,11 @@ import com.zcb.o2o.entity.Shop;
 import com.zcb.o2o.exceptions.ShopOperationException;
 
 public interface ShopService {
-	ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize);
-	Shop getShopById(long shopId);
-	ShopExecution modifyShop(Shop shop, ImageHolder thumbnail) throws ShopOperationException;
-	ShopExecution addShop(Shop shop, ImageHolder thumbnail) throws ShopOperationException;
+    ShopExecution getShopList(Shop shopCondition, int pageIndex, int pageSize);
+
+    Shop getShopById(long shopId);
+
+    ShopExecution modifyShop(Shop shop, ImageHolder thumbnail) throws ShopOperationException;
+
+    ShopExecution addShop(Shop shop, ImageHolder thumbnail) throws ShopOperationException;
 }

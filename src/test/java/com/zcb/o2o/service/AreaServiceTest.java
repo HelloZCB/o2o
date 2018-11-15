@@ -11,12 +11,12 @@ import com.zcb.o2o.BaseTest;
 import com.zcb.o2o.entity.Area;
 
 public class AreaServiceTest extends BaseTest {
-	@Autowired
-	private AreaService areaService;
-	
-	@Test
-	public void testGetAreaList() {
-		List<Area> areaList = areaService.getAreaList();
-		assertEquals("西门", areaList.get(0).getAreaName());
-	}
+    @Autowired
+    private AreaService areaService;
+
+    @Test
+    public void testGetAreaList() {
+        List<Area> areaList = areaService.getAreaList();
+        assertEquals("西门", areaList.get(0).getAreaName());
+    }
 }
