@@ -14,7 +14,7 @@
     <mvc:annotation-driven/>
 
     <!-- 2.静态资源默认servlet配置 (1)加入对静态资源的处理：js,gif,png (2)允许使用"/"做整体映射 -->
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+    <mvc:resources mapping="/resources/**" location="/resources/"/><!--对应webapp下的resources所有静态资源-->
     <mvc:default-servlet-handler/>
 
     <!-- 3.定义视图解析器 -->
@@ -32,8 +32,10 @@
         <property name="maxInMemorySize" value="20971520"></property>
     </bean>
 
-    <!-- 4.扫描web相关的bean -->
+    <!-- 4.扫描web相关的bean，主要是Controller类 -->
     <context:component-scan base-package="com.zcb.o2o.web"/>
+
+
     <!-- 5.权限拦截器 -->
     <!-- <mvc:interceptors>
         校验是否已登录了店家管理系统的拦截器

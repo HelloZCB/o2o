@@ -65,6 +65,9 @@
         <servlet-name>Kaptcha</servlet-name>
         <url-pattern>/Kaptcha</url-pattern>
     </servlet-mapping>
+
+    <!-- springmvc默认会从WEB-INF下找对应的servlet配置文件，默认名称为[servletName]-servlet.xml
+     如果要使用其他路径的文件作为配置文件，则需要配置init-param                                                                    -->
     <servlet>
         <servlet-name>spring-dispatcher</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -73,6 +76,7 @@
             <param-value>classpath:spring/spring-*.xml</param-value>
         </init-param>
     </servlet>
+    <!-- 配置spring mvc的DispatcherServlet拦截所有的请求 -->
     <servlet-mapping>
         <servlet-name>spring-dispatcher</servlet-name>
         <!-- 默认匹配所有请求 -->
