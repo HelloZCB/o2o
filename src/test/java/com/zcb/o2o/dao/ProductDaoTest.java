@@ -132,4 +132,11 @@ public class ProductDaoTest extends BaseTest {
         count = productDao.queryProductCount(productCondition);
         assertEquals(3, count);
     }
+
+    @Test
+    public void testEUpdateProductCategoryToNull() {
+        // 将productCategoryId为2的商品类别下面的商品的商品类别置为空
+        int effectedNum = productDao.updateProductCategoryToNull(2L);
+        assertEquals(2, effectedNum);
+    }
 }
