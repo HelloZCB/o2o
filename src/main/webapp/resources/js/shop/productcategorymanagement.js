@@ -59,7 +59,7 @@ $(function () {
                     $.toast('提交成功！');
                     getList();
                 } else {
-                    $.toast('提交失败！' + data.errMsg);
+                    $.toast('提交失败: ' + data.errMsg);
                 }
             }
         });
