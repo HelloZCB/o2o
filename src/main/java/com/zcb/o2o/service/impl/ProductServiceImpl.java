@@ -10,6 +10,7 @@ import com.zcb.o2o.enums.ProductStateEnum;
 import com.zcb.o2o.exceptions.ProductOperationException;
 import com.zcb.o2o.service.ProductService;
 import com.zcb.o2o.util.ImageUtil;
+import com.zcb.o2o.util.PageCalculator;
 import com.zcb.o2o.util.PathUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,19 @@ public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
     @Autowired
     private ProductImgDao productImgDao;
+
+    @Override
+    public ProductExecution getProductList(Product productCondition, int pageIndex, int pageSize) {
+        // 页码转换成数据库的行码，并调用dao层取回指定页码的商品列表
+        int rowIndex = PageCalculator.calculateRowIndex(pageIndex, pageSize);
+        List<Product> productList = productDao.queryProductList(productCondition, rowIndex, pageSize);
+        // 基于同样的查询条件返回该查询条件下的商品总数
+        int count = productDao.queryProductCount(productCondition);
+        ProductExecution pe = new ProductExecution();
+        pe.setProductList(productList);
+        pe.setCount(count);
+        return pe;
+    }
 
     @Override
     @Transactional
