@@ -141,6 +141,7 @@
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
         </dependency>
+
     </dependencies>
     <build>
         <finalName>o2o</finalName>
@@ -155,6 +156,23 @@
                     <encoding>utf8</encoding>
                 </configuration>
             </plugin>
+
+            <!-- docker 镜像制作 -->
+            <!--<plugin>-->
+                <!--<groupId>com.google.cloud.tools</groupId>-->
+                <!--<artifactId>jib-maven-plugin</artifactId>-->
+                <!--<version>1.0.2</version>-->
+                <!--<configuration>-->
+                    <!--<to>-->
+                        <!--<image>hellozcb/myo2o:1.0</image>-->
+                    <!--</to>-->
+                    <!--<container>-->
+                        <!--<ports>-->
+                            <!--<port>8080</port>-->
+                        <!--</ports>-->
+                    <!--</container>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
         </plugins>
     </build>
 </project>

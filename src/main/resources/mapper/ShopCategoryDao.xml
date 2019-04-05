@@ -15,10 +15,10 @@
         parent_id
         FROM
         tb_shop_category
-        <where>
-            <!-- <if test="shopCategoryCondition == null">
+        <where> <!--如果parent_id为空，及查询的是一级商品类别-->
+            <if test="shopCategoryCondition == null">
                 and parent_id is null
-            </if> -->
+            </if>
             <if test="shopCategoryCondition != null">
                 and parent_id is not null
             </if>
